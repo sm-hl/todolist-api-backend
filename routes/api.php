@@ -24,8 +24,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // task
-Route::get('/tasks', [TaskController::class,'index'])->name('tasks.index');
-Route::get('/tasks/{id}', [TaskController::class,'show'])->name('tasks.show');
-Route::post('/tasks/store', [TaskController::class,'store'])->name('tasks.store');
-Route::put('/tasks/update/{id}', [TaskController::class,'update'])->name('tasks.update');
-Route::delete('/tasks/delete/{id}', [TaskController::class,'destroy'])->name('tasks.destroy');
+// Route::get('/tasks', [TaskController::class,'index'])->name('tasks.index');
+// Route::get('/tasks/{id}', [TaskController::class,'show'])->name('tasks.show');
+// Route::post('/tasks/store', [TaskController::class,'store'])->name('tasks.store');
+// Route::put('/tasks/update/{id}', [TaskController::class,'update'])->name('tasks.update');
+// Route::delete('/tasks/delete/{id}', [TaskController::class,'destroy'])->name('tasks.destroy');
+Route::apiResource('tasks',TaskController::class);//crud - endpoint is a api to do a specific task
+// apiResource : (tap php artisan route:list to show these routes)
+// get    | tasks.index   : api/tasks 
+// post   | tasks.store   : api/tasks
+// get    | tasks.show    : api/tasks/{task}
+// put    | tasks.update  : api/tasks/{task}
+// delete | tasks.destroy : api/tasks/{task}

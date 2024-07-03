@@ -33,11 +33,14 @@ class TaskController extends Controller
         //     'priority' => 'required|in:1,2,3',
         //     'tags' => 'required',
         // ]);
+        // $caracters = strlen($request->tags);
+        // $words = str_word_count($request->tags);
+        Log::info($request->all());
         $time =new DateTime($request->execution_date);
         Task::create([
             'title' => $request->title,
             'description' => $request->description,
-            'execution_date' => $time->format('Y-m-d'),
+            'execution_date' => $time->format('Y-m-d H:i'),
             'completed' => (boolean) $request->completed,//0 -> false, 1->true
             'priority' => (integer) $request->priority,
             'tags' => $request->tags,
@@ -61,7 +64,7 @@ class TaskController extends Controller
     public function update(Request $request, $id)
     {
         $task = Task::find($id);
-        $time =new DateTime($request->execution_date);
+        $time = new DateTime($request->execution_date);
         $task->update([
             'title' => $request->title,
             'description' => $request->description,
