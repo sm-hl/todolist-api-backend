@@ -29,7 +29,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Route::post('/tasks/store', [TaskController::class,'store'])->name('tasks.store');
 // Route::put('/tasks/update/{id}', [TaskController::class,'update'])->name('tasks.update');
 // Route::delete('/tasks/delete/{id}', [TaskController::class,'destroy'])->name('tasks.destroy');
-Route::apiResource('tasks',TaskController::class);//crud - endpoint is a api to do a specific task
+Route::apiResource('tasks',TaskController::class);//crud - endpoint is an api to do a specific task
 // apiResource : (tap php artisan route:list to show these routes)
 // get    | tasks.index   : api/tasks 
 // post   | tasks.store   : api/tasks
